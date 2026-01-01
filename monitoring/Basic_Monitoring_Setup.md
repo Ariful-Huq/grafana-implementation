@@ -48,7 +48,7 @@ You'll be able to monitor:
 2. **Configuration:**
    | Setting | Value |
    |---------|-------|
-   | Name | `web-server-01` |
+   | Name | `PROD01` |
    | AMI | Ubuntu Server 22.04 LTS |
    | Instance Type | t2.micro or t3.small |
    | Key Pair | Same as monitoring server (or new) |
@@ -249,7 +249,7 @@ sudo nano /etc/prometheus/prometheus.yml
     static_configs:
       - targets: ['10.0.8.145:9100']  # Replace with YOUR web server's PRIVATE IP
         labels:
-          instance: 'web-server-01'
+          instance: 'PROD01'
           environment: 'production'
           role: 'web'
 ```
@@ -275,7 +275,7 @@ scrape_configs:
     static_configs:
       - targets: ['10.0.8.145:9100']  # Your web server's private IP
         labels:
-          instance: 'web-server-01'
+          instance: 'PROD01'
           environment: 'production'
           role: 'web'
 ```
@@ -353,22 +353,22 @@ Login with your credentials.
 
    **CPU Usage:**
    ```
-   100 - (avg by(instance) (irate(node_cpu_seconds_total{mode="idle",instance="web-server-01"}[5m])) * 100)
+   100 - (avg by(instance) (irate(node_cpu_seconds_total{mode="idle",instance="PROD01"}[5m])) * 100)
    ```
 
    **Memory Usage (%):**
    ```
-   (node_memory_MemTotal_bytes{instance="web-server-01"} - node_memory_MemAvailable_bytes{instance="web-server-01"}) / node_memory_MemTotal_bytes{instance="web-server-01"} * 100
+   (node_memory_MemTotal_bytes{instance="PROD01"} - node_memory_MemAvailable_bytes{instance="PROD01"}) / node_memory_MemTotal_bytes{instance="PROD01"} * 100
    ```
 
    **Disk Usage (%):**
    ```
-   (node_filesystem_size_bytes{instance="web-server-01",mountpoint="/"} - node_filesystem_avail_bytes{instance="web-server-01",mountpoint="/"}) / node_filesystem_size_bytes{instance="web-server-01",mountpoint="/"} * 100
+   (node_filesystem_size_bytes{instance="PROD01",mountpoint="/"} - node_filesystem_avail_bytes{instance="PROD01",mountpoint="/"}) / node_filesystem_size_bytes{instance="PROD01",mountpoint="/"} * 100
    ```
 
    **Network Traffic (received):**
    ```
-   rate(node_network_receive_bytes_total{instance="web-server-01"}[5m])
+   rate(node_network_receive_bytes_total{instance="PROD01"}[5m])
    ```
 
 4. **Click "Run query"** - you should see current values!
@@ -396,7 +396,7 @@ Login with your credentials.
 
 5. **Filter to your server:**
    - At top of dashboard, find "Host" dropdown
-   - Select `web-server-01`
+   - Select `PROD01`
 
 **You should now see:**
 - CPU Usage graphs
@@ -418,7 +418,7 @@ If you want a custom dashboard from scratch:
    - Datasource: Prometheus
    - Query:
      ```
-     100 - (avg by(instance) (irate(node_cpu_seconds_total{mode="idle",instance="web-server-01"}[5m])) * 100)
+     100 - (avg by(instance) (irate(node_cpu_seconds_total{mode="idle",instance="PROD01"}[5m])) * 100)
      ```
    - Legend: `CPU Usage %`
    - Panel title: `CPU Usage`
@@ -428,7 +428,7 @@ If you want a custom dashboard from scratch:
    - Click "Add" → "Visualization"
    - Query:
      ```
-     (node_memory_MemTotal_bytes{instance="web-server-01"} - node_memory_MemAvailable_bytes{instance="web-server-01"}) / node_memory_MemTotal_bytes{instance="web-server-01"} * 100
+     (node_memory_MemTotal_bytes{instance="PROD01"} - node_memory_MemAvailable_bytes{instance="PROD01"}) / node_memory_MemTotal_bytes{instance="PROD01"} * 100
      ```
    - Panel title: `Memory Usage %`
    - Click "Apply"
@@ -437,7 +437,7 @@ If you want a custom dashboard from scratch:
    - Click "Add" → "Visualization"
    - Query:
      ```
-     (node_filesystem_size_bytes{instance="web-server-01",mountpoint="/"} - node_filesystem_avail_bytes{instance="web-server-01",mountpoint="/"}) / node_filesystem_size_bytes{instance="web-server-01",mountpoint="/"} * 100
+     (node_filesystem_size_bytes{instance="PROD01",mountpoint="/"} - node_filesystem_avail_bytes{instance="PROD01",mountpoint="/"}) / node_filesystem_size_bytes{instance="PROD01",mountpoint="/"} * 100
      ```
    - Panel title: `Disk Usage %`
    - Click "Apply"
@@ -446,12 +446,12 @@ If you want a custom dashboard from scratch:
    - Click "Add" → "Visualization"
    - Query A:
      ```
-     rate(node_network_receive_bytes_total{instance="web-server-01",device!~"lo|veth.*"}[5m])
+     rate(node_network_receive_bytes_total{instance="PROD01",device!~"lo|veth.*"}[5m])
      ```
    - Legend: `Received`
    - Query B (click "+ Query"):
      ```
-     rate(node_network_transmit_bytes_total{instance="web-server-01",device!~"lo|veth.*"}[5m])
+     rate(node_network_transmit_bytes_total{instance="PROD01",device!~"lo|veth.*"}[5m])
      ```
    - Legend: `Transmitted`
    - Panel title: `Network Traffic`
@@ -459,7 +459,7 @@ If you want a custom dashboard from scratch:
 
 7. **Save Dashboard:**
    - Click 💾 (Save icon)
-   - Name: `Web Server - web-server-01`
+   - Name: `Web Server - PROD01`
    - Click "Save"
 
 **Checkpoint:** ✅ Dashboard showing live metrics from web server
@@ -612,7 +612,7 @@ sudo nano /etc/prometheus/prometheus.yml
     static_configs:
       - targets: ['10.0.8.145:9113']  # Your web server's private IP
         labels:
-          instance: 'web-server-01'
+          instance: 'PROD01'
 ```
 
 ```bash
@@ -672,7 +672,7 @@ cat /etc/prometheus/prometheus.yml | grep -A5 web_server_01
 
 - Open: `http://44.244.230.26:9090`
 - Status → Targets → Verify target is UP
-- Graph → Query: `up{instance="web-server-01"}` → Execute
+- Graph → Query: `up{instance="PROD01"}` → Execute
 - Should return 1
 
 **2. Check Grafana datasource:**
@@ -682,7 +682,7 @@ cat /etc/prometheus/prometheus.yml | grep -A5 web_server_01
 
 **3. Verify query in Grafana:**
 
-- Use Explore with simple query: `up{instance="web-server-01"}`
+- Use Explore with simple query: `up{instance="PROD01"}`
 
 ### High CPU/Memory on Web Server
 

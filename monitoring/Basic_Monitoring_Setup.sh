@@ -143,7 +143,7 @@ log_info "Monitoring server public access: $MONITORING_PUBLIC_IP"
 
 # Optional: Get server identifier
 echo ""
-read -p "Enter a name for this server (e.g., web-server-01) [default: $HOSTNAME]: " SERVER_NAME
+read -p "Enter a name for this server (e.g., PROD01) [default: $HOSTNAME]: " SERVER_NAME
 SERVER_NAME=${SERVER_NAME:-$HOSTNAME}
 
 log_info "Server will be identified as: $SERVER_NAME"
