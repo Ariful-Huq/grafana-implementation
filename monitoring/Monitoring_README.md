@@ -192,7 +192,7 @@ This section introduces the monitoring tools in our stack and explains their **g
 ### 🔧 Core Monitoring Tools
 
 #### 1. **Prometheus** - Metrics Collection & Storage
-![Type: Time-Series Database](prometheus-time-series-database.png)
+[Type: Time-Series Database]
 
 
 **What it does (General):**
@@ -219,7 +219,7 @@ This section introduces the monitoring tools in our stack and explains their **g
 ---
 
 #### 2. **Grafana** - Visualization Platform
-![Type: Dashboard & Analytics]
+[Type: Dashboard & Analytics]
 
 **What it does (General):**
 - Creates beautiful, interactive dashboards
@@ -2915,10 +2915,15 @@ sudo journalctl -u grafana-server -f
 
 ---
 
-**Last Updated:** January 2026  
-**Author:** BMI Health Tracker Monitoring Team  
+## 🧑‍💻 Author
+**Md. Sarowar Alam**  
+Lead DevOps Engineer, Hogarth Worldwide  
+📧 Email: sarowar@hotmail.com  
+🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)
+
 **Version:** 1.0  
 **Monitoring Stack:** Prometheus 2.48.0 • Grafana Latest • Loki 2.9.3 • AlertManager 0.26.0
+**Last Updated:** January 2026
 
 **Communication Method:** HTTP GET Requests
 
@@ -3636,5 +3641,13 @@ This guide is maintained as part of the BMI Health Tracker project. For improvem
 
 ---
 
-**Last Updated:** January 2026  
-**Monitoring Stack Version:** Prometheus 2.48.0, Grafana Latest, Loki 2.9.3
+## 🧑‍💻 Author
+**Md. Sarowar Alam**  
+Lead DevOps Engineer, Hogarth Worldwide  
+📧 Email: sarowar@hotmail.com  
+🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)
+
+**Monitoring Stack Version:** Prometheus 2.48.0, Grafana Latest, Loki 2.9.3  
+**Last Updated:** January 2026
+
+---

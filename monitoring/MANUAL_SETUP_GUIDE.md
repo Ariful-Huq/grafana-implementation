@@ -2543,3 +2543,13 @@ pm2 start bmi-exporter
 ---
 
 **Congratulations!** You have successfully set up a complete monitoring infrastructure for your BMI Health Tracker application.
+
+---
+
+## 🧑‍💻 Author
+**Md. Sarowar Alam**  
+Lead DevOps Engineer, Hogarth Worldwide  
+📧 Email: sarowar@hotmail.com  
+🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)
+
+---

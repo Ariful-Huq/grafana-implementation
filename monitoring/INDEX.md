@@ -289,8 +289,12 @@ Before deploying, ensure you have:
 
 ---
 
-**Happy Monitoring! 🚀**
+## 🧑‍💻 Author
+**Md. Sarowar Alam**  
+Lead DevOps Engineer, Hogarth Worldwide  
+📧 Email: sarowar@hotmail.com  
+🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)
 
-*Last Updated: 2024*
-*Version: 1.0*
-*Maintained by: DevOps Team*
+---
+
+**Happy Monitoring! 🚀**

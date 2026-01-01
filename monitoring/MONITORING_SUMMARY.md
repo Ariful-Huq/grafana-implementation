@@ -598,3 +598,13 @@ This monitoring solution provides:
 ✅ **Documented**: Comprehensive guides for all skill levels
 
 **Perfect for**: Junior DevOps engineers learning monitoring, production deployments, or anyone needing reliable observability for a 3-tier web application.
+
+---
+
+## 🧑‍💻 Author
+**Md. Sarowar Alam**  
+Lead DevOps Engineer, Hogarth Worldwide  
+📧 Email: sarowar@hotmail.com  
+🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)
+
+---

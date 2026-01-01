@@ -410,3 +410,13 @@ histogram_quantile(0.95, rate(nginx_http_request_duration_seconds_bucket[5m]))
 - **Total**: ~$35-40/month
 
 **🎉 Congratulations!** You now have a production-grade monitoring system for your BMI Health Tracker application!
+
+---
+
+## 🧑‍💻 Author
+**Md. Sarowar Alam**  
+Lead DevOps Engineer, Hogarth Worldwide  
+📧 Email: sarowar@hotmail.com  
+🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)
+
+---

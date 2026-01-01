@@ -356,3 +356,13 @@ Uses: Public IP
 ---
 
 **Key Takeaway:** Use **private IPs** for all monitoring traffic between servers in the same VPC. This ensures security, performance, and cost efficiency. Only use **public IPs** for external user access to Grafana.
+
+---
+
+## 🧑‍💻 Author
+**Md. Sarowar Alam**  
+Lead DevOps Engineer, Hogarth Worldwide  
+📧 Email: sarowar@hotmail.com  
+🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)
+
+---

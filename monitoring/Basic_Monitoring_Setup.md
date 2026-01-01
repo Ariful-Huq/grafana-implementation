@@ -752,3 +752,13 @@ Watch metrics update in Grafana in real-time!
 - Prometheus status: `http://44.244.230.26:9090/targets`
 
 **You're now monitoring your web server!** 🎉
+
+---
+
+## 🧑‍💻 Author
+**Md. Sarowar Alam**  
+Lead DevOps Engineer, Hogarth Worldwide  
+📧 Email: sarowar@hotmail.com  
+🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)
+
+---

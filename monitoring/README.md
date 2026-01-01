@@ -680,4 +680,12 @@ After setting up monitoring:
 
 For detailed implementation steps, see [IMPLEMENTATION_GUIDE.md](IMPLEMENTATION_GUIDE.md)
 
-Last Updated: January 1, 2026
+---
+
+## 🧑‍💻 Author
+**Md. Sarowar Alam**  
+Lead DevOps Engineer, Hogarth Worldwide  
+📧 Email: sarowar@hotmail.com  
+🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)
+
+---

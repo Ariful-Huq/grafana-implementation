@@ -1154,6 +1154,10 @@ After successfully deploying this application, consider:
 
 ---
 
-**Built with ❤️ for DevOps Engineers learning 3-tier architecture**
+## 🧑‍💻 Author
+**Md. Sarowar Alam**  
+Lead DevOps Engineer, Hogarth Worldwide  
+📧 Email: sarowar@hotmail.com  
+🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)
 
-Last Updated: January 1, 2026
+---

@@ -1794,3 +1794,13 @@ For user-facing documentation and learning resources, refer to the companion REA
 **Project Status:** Production-Ready ✅  
 **Deployment Target:** AWS EC2 Ubuntu 22.04 LTS  
 **Architecture:** 3-Tier (React + Node.js/Express + PostgreSQL)
+
+---
+
+## 🧑‍💻 Author
+**Md. Sarowar Alam**  
+Lead DevOps Engineer, Hogarth Worldwide  
+📧 Email: sarowar@hotmail.com  
+🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)
+
+---
