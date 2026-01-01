@@ -319,9 +319,16 @@ topk(10, sum by (path) (rate({job="nginx"}[5m])))
    - Monitoring Server (new t2.small or better)
 
 2. **Network Configuration:**
-   - Both servers in same VPC
-   - Security groups allowing traffic between them
-   - Monitoring server accessible from your IP
+   - Both servers in same VPC/subnet (**use private IPs**)
+   - Security groups allowing traffic between servers on ports:
+     - 9100, 9187, 9113, 9091 (exporters: app → monitoring)
+     - 3100 (Loki: app → monitoring)
+   - Monitoring server Grafana (port 3000) accessible from your IP
+   
+   **Private IP Communication:**
+   - Monitoring pulls metrics from app server via private IP
+   - App server sends logs to monitoring via private IP
+   - Keeps all monitoring traffic within VPC (secure & fast)
 
 ### Installation Steps
 

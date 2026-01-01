@@ -75,7 +75,11 @@ fi
 
 # Get application server IP
 echo ""
-read -p "Enter APPLICATION SERVER IP address: " APP_SERVER_IP
+log_info "Network Configuration:"
+log_info "If both servers are in the same VPC/subnet, use PRIVATE IP for better security and performance."
+log_info "Private IPs avoid internet exposure and data transfer costs."
+echo ""
+read -p "Enter APPLICATION SERVER PRIVATE IP address: " APP_SERVER_IP
 if [ -z "$APP_SERVER_IP" ]; then
     log_error "Application server IP is required"
     exit 1

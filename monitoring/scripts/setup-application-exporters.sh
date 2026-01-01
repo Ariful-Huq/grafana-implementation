@@ -74,7 +74,11 @@ fi
 
 # Get monitoring server IP
 echo ""
-read -p "Enter MONITORING SERVER IP address: " MONITORING_IP
+log_info "Network Configuration:"
+log_info "If both servers are in the same VPC/subnet, use PRIVATE IP for better security and performance."
+log_info "Private IPs avoid internet exposure and data transfer costs."
+echo ""
+read -p "Enter MONITORING SERVER PRIVATE IP address: " MONITORING_IP
 if [ -z "$MONITORING_IP" ]; then
     log_error "Monitoring server IP is required"
     exit 1

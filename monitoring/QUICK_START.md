@@ -7,7 +7,22 @@ This guide will help you set up comprehensive monitoring for the BMI Health Trac
 - **Application Server**: EC2 Ubuntu 22.04 with BMI app already running
 - **Monitoring Server**: Fresh EC2 Ubuntu 22.04 (t3.medium recommended, 4GB+ RAM)
 - SSH access to both servers
+- **Both servers in same VPC/subnet** (recommended)
 - Security groups configured to allow traffic between servers
+
+### 🔐 Network Configuration (IMPORTANT)
+
+**Use Private IPs for communication:**
+- When servers are in the same VPC/subnet, **always use private IPs**
+- Private IPs look like: `10.x.x.x`, `172.16-31.x.x`, or `192.168.x.x`
+- Find private IP: `hostname -I` or AWS Console → Instance → Private IPv4 addresses
+
+**Benefits of Private IPs:**
+- ✅ Better security (traffic stays within VPC)
+- ✅ Lower latency (no internet routing)
+- ✅ No data transfer costs
+- ✅ More reliable connection
+- ✅ Exporters not exposed to internet
 
 ## 🏗️ Architecture Overview
 
@@ -51,7 +66,8 @@ cd single-server-3tier-webapp-monitoring/monitoring/scripts
 
 # Run the setup script (requires sudo)
 sudo bash setup-monitoring-server.sh
-# When prompted, enter your APPLICATION SERVER IP
+# When prompted, enter your APPLICATION SERVER PRIVATE IP
+# Find it with: hostname -I (on app server)
 ```
 
 **What this does:**
@@ -78,7 +94,7 @@ cd single-server-3tier-webapp-monitoring/monitoring/scripts
 # Run the setup script (requires sudo)
 sudo bash setup-application-exporters.sh
 # When prompted, enter:
-# - MONITORING SERVER IP
+# - MONITORING SERVER PRIVATE IP (find it with: hostname -I)
 # - Database credentials (name, user, password)
 ```
 
@@ -248,7 +264,19 @@ histogram_quantile(0.95, rate(nginx_http_request_duration_seconds_bucket[5m]))
 
 ### Target Shows "DOWN" in Prometheus
 
-1. **Check exporter is running:**
+1. **Verify you used PRIVATE IPs:**
+   ```bash
+   # On application server - check private IP
+   hostname -I
+   # Or
+   ip addr show | grep "inet " | grep -v 127.0.0.1
+   
+   # Verify Prometheus config has correct private IP
+   # On monitoring server:
+   cat /etc/prometheus/prometheus.yml | grep targets
+   ```
+
+2. **Check exporter is running:**
    ```bash
    # On application server
    sudo systemctl status node_exporter
@@ -256,18 +284,18 @@ histogram_quantile(0.95, rate(nginx_http_request_duration_seconds_bucket[5m]))
    sudo systemctl start node_exporter
    ```
 
-2. **Check firewall:**
+3. **Check firewall:**
    ```bash
    # On application server
    sudo ufw status
-   # Should show monitoring server IP allowed on exporter ports
+   # Should show monitoring server PRIVATE IP allowed on exporter ports
    ```
 
-3. **Test connectivity:**
+4. **Test connectivity using PRIVATE IPs:**
    ```bash
-   # From monitoring server
-   telnet APP_SERVER_IP 9100
-   curl http://APP_SERVER_IP:9100/metrics
+   # From monitoring server (use private IPs)
+   telnet APP_SERVER_PRIVATE_IP 9100
+   curl http://APP_SERVER_PRIVATE_IP:9100/metrics
    ```
 
 ### No Logs in Loki

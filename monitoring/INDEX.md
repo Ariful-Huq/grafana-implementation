@@ -9,7 +9,13 @@
    - Perfect for first-time setup
    - **Read this first!**
 
-2. **[README.md](./README.md)**
+2. **[NETWORK_CONFIGURATION.md](./NETWORK_CONFIGURATION.md)** 🌐 **IMPORTANT**
+   - Private vs Public IP usage
+   - Security group configuration
+   - Network troubleshooting
+   - **Read before deployment!**
+
+3. **[README.md](./README.md)**
    - Architecture overview with diagrams
    - Component descriptions
    - What gets monitored
