@@ -364,7 +364,6 @@ scrape_configs:
           level:
 EOFPROMTAIL
 fi
-fi
 
 # Create Promtail systemd service
 cat > /etc/systemd/system/promtail.service <<'EOFSVC'
@@ -394,10 +393,12 @@ log_success "Promtail installed and started on port 9080"
 #=============================================================================
 log_info "Installing BMI Custom Application Exporter..."
 
-# Check if Node.js is installed
+# Check if Node.js is installed, install if not
 if ! command -v node &> /dev/null; then
-    log_error "Node.js is not installed. Please install Node.js first."
-    exit 1
+    log_info "Node.js not found. Installing Node.js 20.x..."
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+    apt install -y nodejs
+    log_success "Node.js installed: $(node --version)"
 fi
 
 # Create exporter directory
