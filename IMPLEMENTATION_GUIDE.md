@@ -191,7 +191,7 @@ cd bmi-health-tracker
 ### 4.2 Setup Backend
 
 ```bash
-cd /home/ubuntu/single-server-3tier-webapp/backend
+cd /home/ubuntu/single-server-3tier-webapp-github-actions/backend
 
 # Create environment file from example
 cp .env.example .env
