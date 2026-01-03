@@ -286,7 +286,7 @@ npm install -g pm2
 ### 5.2 Start Backend with PM2
 
 ```bash
-cd /home/ubuntu/single-server-3tier-webapp/backend
+cd /home/ubuntu/single-server-3tier-webapp-github-actions/backend
 
 # Start the backend server
 pm2 start src/server.js --name bmi-backend
