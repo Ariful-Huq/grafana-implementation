@@ -782,7 +782,7 @@ This exporter will provide application-specific metrics like measurements create
 
 ```bash
 # Create exporter directory
-cd /home/ubuntu/bmi-health-tracker
+cd /home/ubuntu/single-server-3tier-webapp-github-actions
 mkdir -p monitoring-exporter
 cd monitoring-exporter
 
