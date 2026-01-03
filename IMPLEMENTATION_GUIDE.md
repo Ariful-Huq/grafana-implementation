@@ -245,7 +245,7 @@ npm start
 ### 4.3 Setup Frontend
 
 ```bash
-cd /home/ubuntu/single-server-3tier-webapp/frontend
+cd /home/ubuntu/single-server-3tier-webapp-github-actions/frontend
 
 # Install dependencies
 npm install
