@@ -128,7 +128,7 @@ ssh -i your-key.pem ubuntu@MONITORING_SERVER_IP
 sudo apt update && sudo apt upgrade -y
 
 # Install essential tools
-sudo apt install -y curl wget git vim htop net-tools
+sudo apt install -y curl wget git vim htop net-tools unzip
 ```
 
 ### Step 1.3: Create Directory Structure
