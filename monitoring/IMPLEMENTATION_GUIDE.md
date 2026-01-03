@@ -236,7 +236,7 @@ scrape_configs:
           role: 'monitoring'
 EOF
 
-# Replace APPLICATION_SERVER_IP with actual IP
+# Replace APPLICATION_SERVER_IP with actual EC2 private IP
 # Edit the file:
 sudo vim /etc/prometheus/prometheus.yml
 # Replace all instances of APPLICATION_SERVER_IP
