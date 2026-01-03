@@ -197,7 +197,7 @@ cd /home/ubuntu/single-server-3tier-webapp-github-actions/backend
 cp .env.example .env
 
 # Edit environment variables
-nano .env
+sudo nano .env
 ```
 
 **Configure `.env` file:**
