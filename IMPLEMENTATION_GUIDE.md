@@ -75,7 +75,7 @@ Replace `YOUR_EC2_PUBLIC_IP` with your instance's public IP from AWS Console.
 sudo apt update && sudo apt upgrade -y
 
 # Install essential build tools and utilities
-sudo apt install -y git curl wget build-essential nginx ufw ca-certificates gnupg
+sudo apt install -y git curl wget build-essential nginx ufw ca-certificates gnupg unzip
 ```
 
 ### 2.2 Install Node.js via NVM (Node Version Manager)
