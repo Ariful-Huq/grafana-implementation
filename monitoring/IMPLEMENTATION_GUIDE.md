@@ -921,7 +921,7 @@ app.listen(PORT, () => {
 EOF
 
 # Install dependencies
-npm install
+npm install dotenv
 
 # Create PM2 ecosystem file
 cat > ecosystem.config.js <<'EOF'
