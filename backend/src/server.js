@@ -2,18 +2,17 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const path = require('path');
 const routes = require('./routes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const NODE_ENV = process.env.NODE_ENV || 'development';
+const NODE_ENV = process.env.NODE_ENV || 'production';
 
 // CORS configuration
 const corsOptions = {
   origin:
     NODE_ENV === 'production'
-      ? process.env.FRONTEND_URL || 'http://localhost'
+      ? process.env.FRONTEND_URL || '*'
       : ['http://localhost:5173', 'http://localhost:3000'],
   credentials: true,
   optionsSuccessStatus: 200,
@@ -22,7 +21,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
-// Health check endpoint
+// Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', environment: NODE_ENV });
 });
@@ -30,20 +29,7 @@ app.get('/health', (req, res) => {
 // API routes
 app.use('/api', routes);
 
-// Serve frontend (production only)
-if (NODE_ENV === 'production') {
-  const frontendPath = path.join(__dirname, '../../frontend/dist');
-
-  // Serve static assets
-  app.use(express.static(frontendPath));
-
-  // SPA fallback (React Router, etc.)
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(frontendPath, 'index.html'));
-  });
-}
-
-// 404 handler (API only)
+// 404 for API only
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
@@ -54,9 +40,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(`Environment: ${NODE_ENV}`);
-  console.log(`API available at: http://localhost:${PORT}/api`);
+// Start server (internal only)
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`API server running on port ${PORT}`);
 });
